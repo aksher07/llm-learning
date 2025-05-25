@@ -1,10 +1,23 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Header, HTTPException, status
 from fastapi.responses import StreamingResponse
+from pydantic import BaseModel
 from langchain_community.chat_models import ChatOpenAI
 from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # for production, set your frontend origin explicitly
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+API_KEY = "supersecretapikey" 
 
 llm = ChatOpenAI(
     openai_api_base="https://infer.e2enetworks.net/project/p-5729/genai/llama_3_3_70b_instruct_fp8/v1",
@@ -14,13 +27,20 @@ llm = ChatOpenAI(
     temperature=0,
 )
 
+class PromptRequest(BaseModel):
+    prompt: str
+
+def verify_api_key(x_api_key: str = Header(...)):
+    if x_api_key != API_KEY:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid API Key"
+        )
+
 @app.post("/generate")
-async def generate(request: Request):
-    # Request not query parameter
-    data = await request.json()
-    prompt = data.get("prompt", "")
-    messages = [HumanMessage(content=prompt)]
-    # human message object of langchain
+async def generate(data: PromptRequest, x_api_key: str = Header(...)):
+    verify_api_key(x_api_key)
+    messages = [HumanMessage(content=data.prompt)]
 
     def generate_stream():
         for chunk in llm.stream(messages):
