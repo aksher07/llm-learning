@@ -1,0 +1,20 @@
+Frequently Asked Questions
+1. Do you charge for data-transfer?
+No, we currently don’t charge for data-transfer to & from your machine instances.
+2. Do you o=er managed services for server instances for free?
+No. All our cloud instances are self-managed by default. We provide basic platform support with ‘no hands to keyboard’ approach.
+3. What is your SLA?
+E2E Networks provides a 99.9% Uptime SLA. Please refer to our SLA details here
+4. Where are your data centers located?
+We have partnered with Tier-III plus data centers like Netmagic.
+5. What are the various facility certifications available at your datacenter location? Our data center has the following certifications• INFORMATION SECURITY MANAGEMENT SYSTEM – ISO/IEC 27001:2005• IT SERVICE MANAGEMENT SYSTEM – ISO/IEC 20000-1:2011• QUALITY MANAGEMENT SYSTEM – ISO 9001:2008
+6. What is your policy on abuse?
+We have a zero-tolerance policy on abuse.
+7. Do you allow to run gaming/mining?
+We do not allow to run any sort of games like Counter Strike, Quake etc. nor we allow to run any sort of mining such as cryptocurrencies and/or anything similar.
+8. Do you allow the use of your servers for downloading content available only in India?
+Circumvention of geographical restrictions that violate content licensing using our servers is NOT allowed.
+9. Does E2E provides Self Managed servers?
+Yes, E2E only o_ers Self Managed servers. Self Managed servers are servers in which E2E does NOT provide any maintenance, management and support. These servers are managed entirely by the customers. The only thing that E2E is responsible for is server and network uptime. Customers with technological savvy team and experience consider self-managed servers.
+10. Do you support Anonymization/Public VPN access for anonymization/Tor nodes?
+Any use case that involves hiding the IP address of an end user using our servers is a prohibited.
